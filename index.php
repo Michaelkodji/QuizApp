@@ -1,0 +1,16 @@
+<?php
+	session_start();
+	require("controller.php");
+	if(!isset($_SESSION['member_id'])){
+		if(isset($_GET["condition"])){
+			$_GET["condition"]();
+		}else{
+			control_login();
+		}
+	}
+	if(isset($_GET["controller"])){
+		$_GET["controller"]();
+	}else{
+		control_epreuve();
+	}
+?>
